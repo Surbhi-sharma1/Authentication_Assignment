@@ -1,0 +1,59 @@
+<div class="container-lg">
+    <form [formGroup]=" addCustomerForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h2 *ngIf="isAddMode">Add customer</h2>
+                <h2 *ngIf="!isAddMode">Edit customer</h2>
+
+            </div>
+        </div>
+        <div class="formGroup">
+            <label for="customerid">Customer ID</label>
+            <input class="form-control" id="customerid" formControlName="customerid">
+
+        </div>
+        <div class="formGroup">
+            <label for="name">Name</label>
+            <input class="form-control" id="name" formControlName="name">
+            <div *ngIf="addCustomerForm.controls['name'].invalid &&(addCustomerForm.controls['name'].dirty|| addCustomerForm.controls['name'].touched)"
+                class="alert">
+                <div *ngIf="addCustomerForm.controls['name'].errors?.['required']">
+                    * Name is Required!
+                </div>
+                <div *ngIf="addCustomerForm.controls['name'].errors?.['minlength']">
+                    * Name should be atleast 3 characters long!
+                </div>
+            </div>
+        </div>
+
+        <div class="formGroup">
+            <label for="website">Website</label>
+            <input class="form-control" id="website" formControlName="website">
+            <div *ngIf="addCustomerForm.controls['website'].invalid &&(addCustomerForm.controls['website'].dirty|| addCustomerForm.controls['website'].touched)"
+                class="alert">
+
+                <div *ngIf="addCustomerForm.controls['website'].errors?.['required']">
+                    *Website is Required!
+                </div>
+
+            </div>
+        </div>
+
+        <div class="formGroup">
+            <label for="address">Address</label>
+            <input class=" form-control" id="address" formControlName="address">
+            <div *ngIf="addCustomerForm.controls['address'].invalid &&(addCustomerForm.controls['address'].dirty|| addCustomerForm.controls['address'].touched)"
+                class="alert">
+                <div *ngIf="addCustomerForm.controls['address'].errors?.['required']">
+                    *Address is Required!
+                </div>
+                <div *ngIf="addCustomerForm.controls['address'].errors?.['minlength']">
+                    *Fill in complete Address!
+                </div>
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary" [disabled]="addCustomerForm.invalid">Save</button>
+        | <button type="button" class=" btn btn-danger" (click)="onCancel()">Cancel</button>
+    </form>
+</div>
