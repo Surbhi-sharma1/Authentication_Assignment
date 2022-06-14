@@ -1,0 +1,42 @@
+<div class="toolbar" role="banner">
+  <img width="40" alt="Angular Logo"
+    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
+  <span>Angular</span>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+
+  <div class="toolbar">
+    <img width="40" alt="Angular Logo"
+      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li *ngIf="isLoggedIn$ |async" class="nav-item">
+          <a class="nav-link " routerLinkActive="active" routerLink="showUsers"
+            [routerLinkActiveOptions]="{ exact: true }">Show Users</a>
+        </li>
+        <li *ngIf="isLoggedIn$ | async" class="nav-item">
+          <a class="nav-link " routerLinkActive="active" routerLink="addUser">Add User</a>
+        </li>
+        <li *ngIf="isLoggedIn$ | async" class="nav-item">
+          <a class="nav link" routerLinkActive="active" routerLink="showCustomers">Show Customers</a>
+        </li>
+        <li *ngIf="isLoggedIn$ | async" class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="addCustomer">Add Customer</a>
+        </li>
+        <li *ngIf="!(isLoggedIn$ | async)" class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="signIn">signIn</a>
+        </li>
+
+        <li *ngIf="isLoggedIn$ | async" class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="signOut" (click)='signOut'>signOut</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br><br>
+<router-outlet></router-outlet>

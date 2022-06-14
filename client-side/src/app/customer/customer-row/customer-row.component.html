@@ -1,0 +1,29 @@
+<table class="table table-bordered">
+    <thead>
+        <td>CustomerId</td>
+        <td>Name</td>
+        <td>Website</td>
+        <td>Address</td>
+    </thead>
+    <tr #row *ngFor="let customer of customers;let i = index">
+        <td id="customerids">{{customer.customerid}}</td>
+        <td id="name">{{customer.name}}</td>
+        <td id="website">{{customer.website}}</td>
+        <td id="address">{{customer.address}}</td>
+        <td>
+            <button type="button" class="btn btn-outline-success"
+                (click)='editCustomer(customer.customerid)'>Edit</button>
+
+            <button type="button" class="btn btn-outline-success"
+                (click)='deleteCustomer(customer.customerid)'>Delete</button>
+
+            <button type="button" class="btn btn-outline-success" (click)="showUsers(customer.customerid)">Show
+                Users</button>
+        </td>
+
+    </tr>
+</table>
+<div>
+    <button class="btn btn-primary" (click)='addCustomer()'>Add new Customer</button>
+
+</div>
